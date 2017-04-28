@@ -14,12 +14,12 @@ import java.util.ArrayList;
 
     public interface DataAccessObject {
 	// Team
-	public ArrayList<User> getTeamMembers(int team_id) throws Exception;
-	public ArrayList<Team> getTeams() throws Exception;
-	public Team getTeam(int id) throws Exception;
+	public ArrayList<User> getTeamMembers(int team_id);
+	public ArrayList<Team> getTeams();
+	public Team getTeam(int id);
 	// User
-	public ArrayList<User> getUsers() throws Exception;
-	public User getUser(int id) throws Exception;
+	public ArrayList<User> getUsers();
+	public User getUser(int id);
 }
 
     

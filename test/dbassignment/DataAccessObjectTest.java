@@ -43,7 +43,7 @@ public class DataAccessObjectTest {
 
    // Test teams
    @Test
-   public void testGetTeamMembers() {
+   public void testGetTeamMembers() throws Exception {
        // Positive test
        User user;
 
@@ -72,7 +72,7 @@ public class DataAccessObjectTest {
    }
 
    @Test
-   public void testGetTeamMembersInValidTeamID() {
+   public void testGetTeamMembersInValidTeamID() throws Exception {
        // Negative test
        ArrayList<User> teamMembers = dao.getTeamMembers(99);
        assertNotNull(teamMembers);
@@ -80,7 +80,7 @@ public class DataAccessObjectTest {
    }
 
    @Test
-   public void testGetAllTeams() {
+   public void testGetAllTeams() throws Exception {
        ArrayList<Team> teams = dao.getTeams();
        assertNotNull(teams);
        assertFalse(teams.isEmpty());
@@ -90,7 +90,7 @@ public class DataAccessObjectTest {
    }
 
    @Test
-   public void testGetTeamByID() {
+   public void testGetTeamByID() throws Exception {
        // positive test
        Team team = dao.getTeam(1);
        assertNotNull(team);
@@ -99,7 +99,7 @@ public class DataAccessObjectTest {
    }
 
    @Test
-   public void testGetTeamByInvalidID() {
+   public void testGetTeamByInvalidID() throws Exception {
        // Negative test
        Team team = dao.getTeam(99);
        assertNull(team);

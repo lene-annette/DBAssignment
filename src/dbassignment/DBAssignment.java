@@ -5,6 +5,8 @@
  */
 package dbassignment;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author lene_
@@ -17,8 +19,14 @@ public class DBAssignment {
     public static void main(String[] args) throws Exception {
         DataAccessObjectImpl dao = new DataAccessObjectImpl();
         try {
-            User u = dao.getUser(1);
-            System.out.println(u);
+            ArrayList<Team> teams = dao.getTeams();
+            System.out.println(teams);
+//            ArrayList<User> members = dao.getTeamMembers(1);
+//            for (Object user : members) {
+//                System.out.println(user);
+            
+//            User u = dao.getUser(1);
+//            System.out.println(u);
         } catch (Exception ex) {
             ex.printStackTrace();
         }

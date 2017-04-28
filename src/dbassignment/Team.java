@@ -14,12 +14,12 @@ import java.util.ArrayList;
 public class Team {
     private int id;
     private String teamName;
-    private ArrayList<Teammember> teammembers;
+    private ArrayList<User> teammembers;
 
-    public Team(int id, String teamname) {
+    public Team(int id, String teamname, ArrayList<User> teammembers) {
         this.id = id;
         this.teamName = teamname;
-        this.teammembers = new ArrayList<Teammember>();
+        this.teammembers = teammembers;
     }
 
     public int getId() {
@@ -30,15 +30,17 @@ public class Team {
         return teamName;
     }
 
-    public ArrayList<Teammember> getTeammembers() {
+    public ArrayList<User> getTeammembers() {
         return teammembers;
     }
-    
 
     @Override
     public String toString() {
-        return "Team{" + "id=" + id + ", teamname=" + teamName + '}';
+        return "Team{" + "id=" + id + ", teamName=" + teamName + ", teammembers=" + teammembers + '}';
     }
+    
+
+ 
     
     
 }

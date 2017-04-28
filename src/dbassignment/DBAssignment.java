@@ -14,8 +14,16 @@ public class DBAssignment {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void main(String[] args) throws Exception {
+        DataAccessObjectImpl dao = new DataAccessObjectImpl();
+        try {
+            User u = dao.getUser(1);
+            System.out.println(u);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+
     }
-    
+
 }

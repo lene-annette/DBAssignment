@@ -19,7 +19,7 @@ import java.util.ArrayList;
 	public Team getTeam(int id);
 	// User
 	public ArrayList<User> getUsers();
-	public User getUser(int id);
+	public User getUser(int id) throws Exception;
 }
 
     

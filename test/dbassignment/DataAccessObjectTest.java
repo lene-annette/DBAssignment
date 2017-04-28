@@ -85,8 +85,8 @@ public class DataAccessObjectTest {
        assertNotNull(teams);
        assertFalse(teams.isEmpty());
        Team team = teams.get(0);
-       assertEquals(team.getName(), "A");
-       assertEquals(team.getMembers().size(), 3);
+       assertEquals(team.getTeamName(), "A");
+       assertEquals(team.getTeammembers().size(), 3);
    }
 
    @Test
@@ -94,8 +94,8 @@ public class DataAccessObjectTest {
        // positive test
        Team team = dao.getTeam(1);
        assertNotNull(team);
-       assertEquals(team.getName(), "A");
-       assertEquals(team.getMembers().size(), 3);
+       assertEquals(team.getTeamName(), "A");
+       assertEquals(team.getTeammembers().size(), 3);
    }
 
    @Test

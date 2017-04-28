@@ -5,10 +5,37 @@
  */
 package dbassignment;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author lene_
  */
-public class DataAccessObjectImpl {
+public class DataAccessObjectImpl implements DataAccessObject{
+
+    @Override
+    public ArrayList<User> getTeamMembers(int team_id) {
+        
+    }
+
+    @Override
+    public ArrayList<Team> getTeams() {
+        
+    }
+
+    @Override
+    public Team getTeam(int id) {
+        
+    }
+
+    @Override
+    public ArrayList<User> getUsers() {
+        
+    }
+
+    @Override
+    public User getUser(int id) {
+        
+    }
     
 }

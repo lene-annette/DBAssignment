@@ -1,32 +1,34 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+ * Main method for the assignment. 
+*/
 package dbassignment;
 
 import java.util.ArrayList;
 
 /**
- *
- * @author lene_
+ * @author Anders Hedegaard Christiansen & Lene Annette Skov
  */
 public class DBAssignment {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) throws Exception {
         DataAccessObjectImpl dao = new DataAccessObjectImpl();
         try {
+            // get all teams
             ArrayList<Team> teams = dao.getTeams();
-            System.out.println(teams);
-//            ArrayList<User> members = dao.getTeamMembers(1);
-//            for (Object user : members) {
-//                System.out.println(user);
-            
-//            User u = dao.getUser(1);
-//            System.out.println(u);
+            for (Team team : teams) {
+                System.out.println(team);
+            }
+            // get one team by id
+            Team team = dao.getTeam(1);
+            System.out.println(team);
+            // get all users
+            ArrayList<User> users = dao.getUsers();
+            for (User user : users) {
+                System.out.println(user);
+            }
+            // get user by id
+            User user = dao.getUser(1);
+            System.out.println(user);
         } catch (Exception ex) {
             ex.printStackTrace();
         }

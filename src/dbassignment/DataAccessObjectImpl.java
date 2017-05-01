@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * DataAccessObject implements the DataAccessObject interface
+ * This class contains methods which recieves data from the database
  */
 package dbassignment;
 
@@ -12,10 +11,6 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author lene_
- */
 public class DataAccessObjectImpl implements DataAccessObject {
 
     private final DBConnector conn;
@@ -24,22 +19,23 @@ public class DataAccessObjectImpl implements DataAccessObject {
         this.conn = new DBConnector();
 
     }
-
+    
+    //Team
     @Override
     public ArrayList<User> getTeamMembers(int team_id) {
         ArrayList<User> members = new ArrayList<User>();
         try {
             Statement stmt = conn.getConnection().createStatement();
             String sql = "Select * from user where user_id in (select user_id from team_member where team_id = " + team_id + ")";
-            User us = null;
+            User user = null;
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
                 int userid = rs.getInt("user_id");
                 String username = rs.getString("username");
                 String password = rs.getString("password");
                 boolean admin = rs.getBoolean("admin");
-                us = new User(userid, username, password, admin);
-                members.add(us);
+                user = new User(userid, username, password, admin);
+                members.add(user);
             }
         } catch (SQLException ex) {
             Logger.getLogger(DataAccessObject.class.getName()).log(Level.SEVERE, null, ex);
@@ -53,15 +49,15 @@ public class DataAccessObjectImpl implements DataAccessObject {
         try {
             Statement stmt = conn.getConnection().createStatement();
             String sql = "select * from team";
-            Team te = null;
+            Team team = null;
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
                 int teamid = rs.getInt("team_id");
                 String teamname = rs.getString("teamname");
                 ArrayList<User> members = getTeamMembers(teamid);
-                te = new Team(teamid, teamname, members);
+                team = new Team(teamid, teamname, members);
 
-                teams.add(te);
+                teams.add(team);
             }
         } catch (Exception ex) {
             Logger.getLogger(DataAccessObject.class.getName()).log(Level.SEVERE, null, ex);
@@ -87,22 +83,23 @@ public class DataAccessObjectImpl implements DataAccessObject {
         }
         return team;
     }
-
+    
+    //User 
     @Override
     public ArrayList<User> getUsers() {
         ArrayList<User> users = new ArrayList<User>();
         try {
             Statement stmt = conn.getConnection().createStatement();
             String sql = "select * from user";
-            User us = null;
+            User user = null;
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
                 int userid = rs.getInt("user_id");
                 String username = rs.getString("username");
                 String password = rs.getString("password");
                 boolean admin = rs.getBoolean("admin");
-                us = new User(userid, username, password, admin);
-                users.add(us);
+                user = new User(userid, username, password, admin);
+                users.add(user);
             }
         } catch (SQLException ex) {
             Logger.getLogger(DataAccessObject.class.getName()).log(Level.SEVERE, null, ex);
@@ -112,7 +109,7 @@ public class DataAccessObjectImpl implements DataAccessObject {
 
     @Override
     public User getUser(int id) {
-        User us = null;
+        User user = null;
         try {
             Statement stmt = conn.getConnection().createStatement();
             String sql = "select * from user where user_id = " + id;
@@ -122,12 +119,12 @@ public class DataAccessObjectImpl implements DataAccessObject {
                 String username = rs.getString("username");
                 String password = rs.getString("password");
                 boolean admin = rs.getBoolean("admin");
-                us = new User(userid, username, password, admin);
+                user = new User(userid, username, password, admin);
             }
         } catch (SQLException ex) {
             Logger.getLogger(DataAccessObject.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return us;
+        return user;
     }
 
 }

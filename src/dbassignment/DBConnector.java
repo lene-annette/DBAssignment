@@ -1,17 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Creates the connection to the database
  */
 package dbassignment;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-/**
- *
- * @author lene_
- */
 public class DBConnector {
     
 	private Connection connection = null;

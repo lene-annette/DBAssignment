@@ -1,4 +1,6 @@
-
+/*
+* User entity class
+*/
 package dbassignment;
 
 

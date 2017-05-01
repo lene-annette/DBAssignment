@@ -1,16 +1,10 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Team entity class
  */
 package dbassignment;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author lene_
- */
 public class Team {
     private int id;
     private String teamName;
